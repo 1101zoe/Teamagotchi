@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>茶葉電子雞</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="game-container">
+    
+    <img id="game-image" src="img/home.png" onclick="changePage('ANY')">
+
+    <div id="effect-layer"></div>
+
+    <button class="invisible-btn btn-a" 
+            onmousedown="showEffect('A')" onmouseup="hideEffect()" 
+            ontouchstart="showEffect('A')" ontouchend="hideEffect()"
+            onclick="changePage('A')"></button>
+            
+    <button class="invisible-btn btn-b" 
+            onmousedown="showEffect('B')" onmouseup="hideEffect()" 
+            ontouchstart="showEffect('B')" ontouchend="hideEffect()"
+            onclick="changePage('B')"></button>
+            
+    <button class="invisible-btn btn-c" 
+            onmousedown="showEffect('C')" onmouseup="hideEffect()" 
+            ontouchstart="showEffect('C')" ontouchend="hideEffect()"
+            onclick="changePage('C')"></button>
+
+</div>
+
+<script src="game.js"></script>
+
+</body>
+</html>

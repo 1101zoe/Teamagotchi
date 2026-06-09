@@ -1,0 +1,135 @@
+/* style.css */
+
+/* --- 1. 整個網頁（螢幕）設定 --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111; /* 深灰色背景，讓圖片沒有填滿的邊緣自然融入 */
+    
+    /* 使用 Flexbox 讓遊戲畫面永遠保持在正中間 */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    
+    /* 100dvh 代表「100% 的手機螢幕高度」，它會自動扣除手機瀏覽器的網址列！ */
+    height: 100dvh; 
+    
+    /* 鎖死網頁，禁止任何上下滑動，讓它像個真正的 App */
+    overflow: hidden; 
+}
+
+/* --- 2. 遊戲容器（A4 大小） --- */
+.game-container {
+    position: relative;
+    
+    /* 神仙組合：讓容器預設撐滿手機寬度，但「最高」絕對不能超過手機高度！ */
+    width: 100%;
+    max-width: calc(100dvh * (210 / 297)); 
+    
+    /* 永遠鎖死 A4 的長寬比例 (寬 210 : 高 297) */
+    aspect-ratio: 210 / 297; 
+    cursor: pointer;
+}
+
+/* --- 3. 圖片設定 --- */
+.game-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated; /* 保持你的復古點陣風格不模糊 */
+}
+
+/* --- 4. 隱形按鈕設定 --- */
+.invisible-btn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    
+    width: 14%; 
+    height: 10%;
+    
+    /* 開發測試用紅框，位置對齊後請把 rgba 改為 transparent */
+    background-color: transparent; 
+    
+    /* ★ 手機版必備神技：取消點擊時，手機瀏覽器預設出現的藍色/灰色半透明閃爍框 ★ */
+    -webkit-tap-highlight-color: transparent; 
+    outline: none;
+}
+#effect-layer {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    
+    /* 核心設定：讓滑鼠/手指穿透這個圖層，點擊依然會傳到背景 */
+    pointer-events: none; 
+    
+    /* 在圖片上面，按鈕下面 */
+    z-index: 5; 
+}
+#effect-layer img {
+    position: absolute;
+    transform: translate(-50%, -50%); /* 圖片中心點定位 */
+    display: block;
+}
+
+.invisible-btn:active {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent; 
+}
+
+.btn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    border-radius: 0%;
+    
+    width: 14%; 
+    height: 10%;
+    
+    /* 開發測試用紅框，位置對齊後請把 rgba 改為 transparent */
+    background-color: transparent; 
+    
+    /* ★ 手機版必備神技：取消點擊時，手機瀏覽器預設出現的藍色/灰色半透明閃爍框 ★ */
+    -webkit-tap-highlight-color: transparent; 
+    outline: none;
+}
+
+/* 按鈕位置 (使用開發者工具微調這裡的數字) */
+.btn-a {
+    bottom: 22%;  
+    left: 10%;    
+}
+/* .btn-a:active {
+    background-image: url('/茶雞寶寶/img/A.jpg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+} */
+
+.btn-b {
+    bottom: 16%; 
+    left: 29%;
+}
+/* .btn-b:active {
+    background-image: url('/茶雞寶寶/img/B.jpg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+} */
+
+.btn-c {
+    bottom: 15%; 
+    left: 50%;
+}
+/* .btn-c:active {
+    background-image: url('/茶雞寶寶/img/C.jpg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+} */
